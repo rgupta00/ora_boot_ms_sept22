@@ -1,0 +1,77 @@
+
+session 1: 
+-------------
+=> loose coupling and high cohesion
+=> Some commond design patterns GOF , Introduction to SOLID
+=> Understand Depdendency Injection
+=> bean wiring :xml, annoation, java configuraton
+=> Spring AOP Overview
+=> Spring MVC arch
+=> Spring mvc architecture
+
+
+Session 2:
+------------
+=> Spring boot REST
+=> REST basics
+=> REST status code
+=> rest controller exception handling
+=> JSR 303 validateion api, richardson maturity model
+=> schedule processes
+=> Spring data, spring boot join
+=> spring boot profile
+=> spring boot actuator
+
+Session 3:
+--------------
+=> Spring data in details
+=> joins, pagination examples
+=> spring security, basic auth, jwt
+
+Session 4:
+------------
+=> Spring boot RestTemplate, OpenFeign
+=> Spring boot messaging rabbitMQ, Spring cloud introduction
+=> Spring boot microservice, 12 factors roles, cloud native application
+=> Microservice design patterns: 
+	Service discovery
+	Edge server
+	Central configuration
+	Ceneralized log analysis
+	Distributed tracing 
+	Circuit breaker
+	Control loop
+	Centralised monitoring and alarm
+	
+	
+Session 5:
+-----------
+
+=> applying microservice patterns bank application
+	account module
+	loan module
+	cards modules
+=> How do we right size our Microservices & Identifying boundaries
+=> creation of accounts, loans & cards microservices
+Section 5 - How do we build, deploy, scale our microservices using Docker (Challenge 2)
+=> Cloud Native Apps & 12factors
+=> Configurations Management in Microservices 
+=> Service Discovery & Registration
+=> Making Microservices Resilient 
+
+
+
+Session 6
+-------------
+=> Handling Routing & Cross cutting concerns 
+=> Distributed tracing & Log aggregation 
+=> Monitoring Microservices Metrics & Health 
+=> Introduction to docker, common commands
+=> build, deploy, scale our microservices using Docker
+=> Docker compose
+
+
+
+
+
+
