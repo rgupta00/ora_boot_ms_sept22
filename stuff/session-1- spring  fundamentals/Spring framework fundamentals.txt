@@ -139,6 +139,57 @@ public class AccountDaoCollectionImpl implements AccountDao{
 
 }
 
+
+Spring bean configration:
+----------------------------
+1. pure xml 
+2. xml + annotation
+3. java config + annotation
+
+
+   @Component
+   anno			xml or java configuration @Bean
+<----------------><---------------->
+business bean		infra bean
+
+
+
+imp annotations:
+--------------------------
+
+	   @Component
+	   
+	   3 tier arch
+	   
+	   
+	  <------------->|<------------------>|<-------------------->
+	  
+
+	@Autowire
+	@Value
+	@Qualifier
+	@Primary
+	@PropertySource
+	@Import
+	
+	@Profile
+	
+		-Dspring.profiles.active=dev
+		
+		
+	Life cycle related : @Lazy @Eager @PostConstruct @PreDestroy
+			@Scope(BeanDefination.SCOPE_SINGLETON)
+	
+
+	AOP related annotation
+	
+	@EnableAspectJAutoproxy
+	@Around @Before @After @AfterReturing @AfterThrows
+	
+	 executions(modifier patterns return type decleation type name pattern (parameter pattern) throws patterns)
+
+
+
 log4j dependencies:
 -------------------
      		<dependency>
