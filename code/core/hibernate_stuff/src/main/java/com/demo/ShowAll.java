@@ -1,5 +1,5 @@
 package com.demo;
-
+import java.util.*;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +10,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 import com.demo.factory.HibernateSessionFactory;
 
-public class AddAccount {
+public class ShowAll {
 
 	public static void main(String[] args) {
 		// hibernate session factory
@@ -19,21 +19,14 @@ public class AddAccount {
 		// 2. session object : Session
 		Session session = factory.openSession(); // Session session=factory.getCurrentSession()
 
-		// 3. start the tx
-		Transaction tx = session.getTransaction();
-
-		// Create the account object and save with hib
-		try {
-			tx.begin();
-			Account account = new Account("umesh", 1000);
-			session.save(account);
-			tx.commit();
-		} catch (HibernateException ex) {
-			tx.rollback();
-		}
-
+											//HQL
+//		List<Account> accounts=session.createQuery("select a from Account a", Account.class).getResultList();
+//		accounts.forEach(a-> System.out.println(a));
+		
+		List<String> accountsHolderNames=session.createQuery("select a.name from Account a", String.class).getResultList();
+		accountsHolderNames.forEach(a-> System.out.println(a));
+		
 		session.close();
-
 		factory.close();
 	}
 }
