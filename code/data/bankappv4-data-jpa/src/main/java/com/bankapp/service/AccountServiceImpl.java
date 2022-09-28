@@ -1,5 +1,6 @@
 package com.bankapp.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,25 +25,28 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public List<Account> getAll() {
+//		if(1==1)
+//			throw new RuntimeException();
 		return accountRepo.findAll();
 	}
 
 	@Override
 	public Account getById(int id) {
-		return accountRepo.findById(id).orElseThrow(() -> new BankAppException("bank account " + id + " is not found"));
+		return accountRepo.findById(id)
+				.orElseThrow(() -> new BankAppException("bank account " + id + " is not found"));
 	}
 
 	@MyLogging
 	@Override
-	public void transfer(int fromAccId, int toAccId, double amount) {
+	public void transfer(int fromAccId, int toAccId, BigDecimal amount) {
 
 		Account fromAcc = getById(fromAccId);
 
 		Account toAcc = getById(toAccId);
 
-		fromAcc.setBalance(fromAcc.getBalance() - amount);
+		fromAcc.setBalance(fromAcc.getBalance().subtract(amount));
 
-		toAcc.setBalance(toAcc.getBalance() + amount);
+		toAcc.setBalance(toAcc.getBalance().add(amount));
 
 		accountRepo.save(fromAcc);
 
@@ -51,25 +55,25 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public void deposit(int id, double amount) {
+	public void deposit(int id, BigDecimal amount) {
 		Account acc = getById(id);
-
-		acc.setBalance(acc.getBalance() + amount);
+		acc.setBalance(acc.getBalance().add(amount));
 		accountRepo.save(acc);
 
 	}
 
 	@Override
-	public void withdraw(int id, double amount) {
+	public void withdraw(int id, BigDecimal amount) {
 		Account acc = getById(id);
 
-		acc.setBalance(acc.getBalance() - amount);
+		acc.setBalance(acc.getBalance().subtract(amount));
 		accountRepo.save(acc);
 	}
 
 	@Override
-	public void addAccount(Account account) {
+	public Account addAccount(Account account) {
 		accountRepo.save(account);
+		return account;
 	}
 
 	@Override
