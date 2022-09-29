@@ -1,0 +1,6 @@
+http://localhost:8080/products
+
+http://localhost:8080/productswithsorting?field=price
+
+
+http://localhost:8080/findProductsWithPagination?offset=10&pageSize=25
