@@ -1,0 +1,18 @@
+server:
+  port: 8085
+  servlet:
+    context-path: /couponapp
+spring:
+  application:
+    name: coupon-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+     defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

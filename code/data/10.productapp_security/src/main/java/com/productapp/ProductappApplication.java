@@ -1,19 +1,26 @@
 package com.productapp;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PostAuthorize;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import com.productapp.entity.Product;
 import com.productapp.entity.UserEntity;
 import com.productapp.service.ProductService;
 import com.productapp.service.UserService;
-
+//@PreAuthorize
+//@PostAuthorize
+//@Secured
+@EnableGlobalMethodSecurity(prePostEnabled = true, 
+ securedEnabled = true)
 @SpringBootApplication
 public class ProductappApplication implements CommandLineRunner {
 

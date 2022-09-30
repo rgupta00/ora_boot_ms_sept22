@@ -1,0 +1,38 @@
+server:
+  port: 8099
+spring:
+  application:
+    name: gateway-app
+  cloud:
+    gateway:
+      routes:
+      - id: couponappId
+        uri: lb://COUPON-APP
+        predicates:
+        - Path=/couponapp/**
+        
+      - id: customerappId
+        uri: lb://CUSTOMER-APP
+        predicates:
+        - Path=/customerapp/**
+        
+      - id: productappId
+        uri: lb://PRODUCT-APP
+        predicates:
+        - Path=/productapp/**
+        
+      - id: orderappId
+        uri: lb://ORDER-APP
+        predicates:
+        - Path=/orderapp/**                     
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
