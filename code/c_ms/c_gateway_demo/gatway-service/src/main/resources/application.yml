@@ -1,0 +1,14 @@
+server:
+  port: 8080
+#spring:
+#  cloud:
+#    gateway:
+#      routes:
+#      - id: greetingModule
+#        uri: http://localhost:8181/
+#        predicates:
+#        - Path=/greet/**
+#      - id: userModule
+#        uri: http://localhost:8282/
+#        predicates:
+#        - Path=/user/**
